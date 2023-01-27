@@ -5,11 +5,10 @@ n=0
 
 while [ $n -lt 10 ]
 do
-  if [[ $n -eq 8 ]]
+  if [ $n -eq 9 ]
   then
     echo "Hi"
-  else
-    echo "Best School"
   fi
+  echo "Best School"
   ((n++))
 done
