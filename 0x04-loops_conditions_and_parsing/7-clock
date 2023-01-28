@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# Displays "Best School" 10 times using a for loop.
+# Displays the time for 12 horus and 59 minutes.
+#   Displays hours from 0 to 12
+#   Displays minutes from 1 to 59
 
-min=0
-hr=0
+hour=0
 
-while [ $hr -lt 13 ]
+while [ $hour -le 12 ]
 do
-  ((min = min % 60))
-  if [ $min -eq 0 ]
-  then
-    echo "Hour: $hr"
-    ((hr++))
-  else
-    echo "$min"
-  fi
-  ((min++))
+  echo "Hour: $hour"
+  minute=1
+  while [ $minute -le 59 ]
+  do
+    echo "$minute"
+    (( minute++ ))
+  done
+  (( hour++ ))
 done
