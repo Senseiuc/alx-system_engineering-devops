@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script creates ssh key named school
+# and also has byte of 4096 and betty 
+# paraphrase
+
+ssh-keygen -b 4096 -f "school" -N "betty" -t rsa
