@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# a script that installs nginx
+# and has hello world in its init file
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow "Nginx HTTP"
+echo 'Hello World!' > /var/www/html/index.html
+sudo service nginx start
