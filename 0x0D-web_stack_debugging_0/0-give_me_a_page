@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Run Apache on the holbertonschool/265-0 Docker container.
-echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 start
+img='holbertonschool/265-0'
+sudo docker exec -ti "$(sudo docker ps | awk '{split($2,image,":"); print $1, image[1]}' | awk -v image=$img '$2 == image {print $1}')" service apache2 start
