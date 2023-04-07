@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # a script that fixes network routing by changing to default port 80 and restart nginx
-sudo sed -i "s/8080 default_server;/80 default_server;/" /etc/nginx/sites-enabled/default
+sudo sed -i "s/sites-enabled/sites-available/" /etc/nginx/nginx.conf
 sudo service nginx restart
