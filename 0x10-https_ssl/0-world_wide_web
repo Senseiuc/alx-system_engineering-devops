@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# A script that prints the record type
+# of a subdomain and it's destination
+
+subdomain () {
+
+	if [ -z "$2" ]; then
+		sub_d=("www" "lb-01" "web-01" "web-02")
+		for str in ${sub_d[@]}; do
+			dig $str.$1 |\
+				awk '/ANSWER SECTION:/ {getline; print \
+				"The subdomain " str " is a " $4 \
+				" record and points to " $5;}' str=$str
+		done
+	else
+		dig $2.$1 | \
+			awk '/ANSWER SECTION:/ {getline; print \
+			"The subdomain " str " is a " $4 \
+			" record and points to " $5;}' str=$2
+	fi
+}
+subdomain $1 $2
