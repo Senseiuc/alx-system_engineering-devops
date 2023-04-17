@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#a script that accepts one argument
+#the username and prints the user
+
+if [ -z "$1" ]
+then
+	sudo whoami
+else
+	sudo -u "$1" whoami 
+fi
