@@ -26,7 +26,7 @@ def tasks_done(id):
 
     with open(file_name, "a") as f:
         for todo in todos_js:
-            if todo.get("userId") == id:
+            if todo.get("userId") == int(id):
                 completed = todo.get("completed")
                 title = todo.get("title")
                 csv_data = "\"{}\",\"{}\",\"{}\",\"{}\"\n".format(id,

@@ -17,7 +17,7 @@ def tasks_done(id):
     url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
     res = requests.get(url)
     res_js = res.json()
-    emp_name = res_js.get("name")
+    emp_name = res_js.get("username")
 
     url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
     todos = requests.get(url)

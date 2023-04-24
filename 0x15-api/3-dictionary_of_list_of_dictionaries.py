@@ -23,7 +23,7 @@ def tasks_done():
         res_js = res.json()
         if len(res_js) == 0:
             break
-        emp_name = res_js.get("name")
+        emp_name = res_js.get("username")
 
         url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
         todos = requests.get(url)
