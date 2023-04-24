@@ -13,12 +13,12 @@ def tasks_done(id):
     id: Is an interger representing an employee id.
     '''
 
-    url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+    url = "https://jsonplaceholder.typicode.com/users?id={}".format(id)
     res = requests.get(url)
     res_js = res.json()
-    emp_name = res_js.get("name")
+    emp_name = res_js[0].get("username")
 
-    url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
+    url = "https://jsonplaceholder.typicode.com/todos"
     todos = requests.get(url)
     todos_js = todos.json()
 
@@ -26,14 +26,15 @@ def tasks_done(id):
 
     with open(file_name, "a") as f:
         for todo in todos_js:
-            completed = todo.get("completed")
-            title = todo.get("title")
-            csv_data = "\"{}\",\"{}\",\"{}\",\"{}\"\n".format(id,
-                                                              emp_name,
-                                                              completed,
-                                                              title
-                                                              )
-            f.write(csv_data)
+            if todo.get("userId") == id:
+                completed = todo.get("completed")
+                title = todo.get("title")
+                csv_data = "\"{}\",\"{}\",\"{}\",\"{}\"\n".format(id,
+                                                                  emp_name,
+                                                                  completed,
+                                                                  title
+                                                                  )
+                f.write(csv_data)
 
 
 if __name__ == "__main__":
