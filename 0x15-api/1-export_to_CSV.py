@@ -8,9 +8,9 @@ import sys
 
 def tasks_done(id):
     '''
-    Script that displays an employee completed tasks
+    Script that exports an employee completed into a csv
     Parameters:
-    employee_id: Is an interger representing an employee id.
+    id: Is an interger representing an employee id.
     '''
 
     url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
@@ -21,10 +21,6 @@ def tasks_done(id):
     url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
     todos = requests.get(url)
     todos_js = todos.json()
-    no_of_tasks = len(todos_js)
-
-    task_compleated = 0
-    task_list = ""
 
     file_name = "{}.csv".format(id)
 
