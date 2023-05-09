@@ -33,8 +33,6 @@ def user_info():
         flag = 0
         for student_key, student_entry in student_output.items():
             if str(correct_key) == str(student_key):
-                print(correct_key, " vs ", student_key, "\n")
-                print(correct_entry, " vs \t", student_entry, "\n")
                 flag = 1
                 if correct_entry != student_entry:
                     print("User ID {} Tasks: Incorrect".format(str(correct_key)))
