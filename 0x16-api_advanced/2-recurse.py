@@ -18,7 +18,7 @@ def recurse(subreddit, hot_list=[]):
     else:
         url = "https://api.reddit.com/r/{}?sort=hot".format(subreddit)
         subreddit = [subreddit, ""]
-    headers = {'User-Agent': 'CustomClient/1.0'}
+    headers = {'User-Agent': 'linux:0x16.api.advanced:v1.0.0 (by /u/senseiuc)'}
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
         return (None)

@@ -9,7 +9,7 @@ import requests
 def number_of_subscribers(subred):
     """returns number of total subscribers"""
     url = ("https://api.reddit.com/r/{}/about".format(subred))
-    headers = {'User-Agent': 'RequestApi/1.0'}
+    headers = {'User-Agent': 'linux:0x16.api.advanced:v1.0.0 (by /u/senseiuc)'}
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:
